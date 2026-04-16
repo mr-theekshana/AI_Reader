@@ -1,12 +1,13 @@
 # AI Reader 🎧
 
 AI Reader is a native Windows application designed for high-quality, natural-sounding AI text-to-speech (TTS). It provides a seamless reading experience with a focus on ease of use and modern aesthetics.
+![Reader Interface](ui/popup.png)
 
 ## Features ✨
 
 - **Natural AI Voice**: Powered by Kokoro and ONNX Runtime for high-quality, offline TTS.
 - **Selection Monitor**: Automatically captures selected text for instant reading.
-- **AIMP-Style Interface**: Minimalist top-bar that appears when you move your mouse to the top of the screen.
+- **Minial Interface**: Minimalist top-bar that appears when you move your mouse to the top of the screen.
 - **System Tray Integration**: Runs quietly in the background; easily accessible from the system tray.
 - **Support for Multiple Voices**: Load and switch between different AI voices.
 - **Offline First**: All processing happens locally on your machine.
@@ -20,14 +21,31 @@ AI Reader is a native Windows application designed for high-quality, natural-sou
 
 ## Installation 🚀
 ### For Direct Users - [Direct Download link](https://drive.google.com/file/d/1BQXiuUQhtKrjRnCkpciJTFqjGDJmbgrI/view?usp=drive_link)
-- Open AI_Reader_Setup_v3.0
+- Open the AI_Reader_Setup_v3.0 file.
 - Install it normally.
-- After installing finish, Click the AI Reader to run.
+- Once the installation is complete, click AI Reader to run it.
+- When it is running, you can find it in the Windows system tray:
+![Reader Interface](ui/tray.png)
+- Alternatively, a small popup will appear at the top of the screen when you move your mouse to the top edge:
+![Reader Interface](ui/pop.png)
+- If you click it, the following UI popup will appear:
+![Reader Interface](ui/popup.png)
+- To access the main application, go to the Windows system tray, right-click the icon, and select "Open Reader" (or simply double-click the icon).
+![Reader Interface](ui/openmain.png)
+- The Main Application Interface:
+![Reader Interface](ui/main.png)
+- If you need to read a PDF, add the file here, click "Extract Page Text," and then click the play button to start reading.
+![Reader Interface](ui/mainpdf.png)
+- If you need to translate anything, you can use this option. Several languages are available.
+![Reader Interface](ui/maintrans.png)
+### ℹ️ If you change any settings, they will save automatically. When you open the application later, your previous settings will be loaded by default.
+### 📌 While running, the application uses your computer's local resources to process the text. The processing time and reading speed depend entirely on your system's performance.
+### ⚠️ When using a terminal, please turn off this button. This ensures it will not interfere with your work; otherwise, the terminal might unexpectedly close due to the [CTRL + C] command.
+![Reader Interface](ui/trans.png)
 
 ## Details about program
-- It's natural reader is 100% off line.
-- Almost whole program is offline
-- If you use translate option, then it need connection to translate. it uses google translate
+- Its natural voice reader is 100% offline.
+- If you use the translation feature, it requires an internet connection, as it relies on Google Translate.
 ![Reader Interface](ui/trans.png)
 
 ## For Developers
