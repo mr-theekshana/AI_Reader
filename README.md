@@ -19,7 +19,9 @@ AI Reader is a native Windows application designed for high-quality, natural-sou
 4. **Monitoring**: The app monitors your clipboard/selection to provide quick read-aloud functionality.
 
 ## Installation 🚀
+### For Direct Users - [Direct Download link]([/guides/content/editing-an-existing-page](https://drive.google.com/file/d/1BQXiuUQhtKrjRnCkpciJTFqjGDJmbgrI/view?usp=drive_link))
 
+## For Developers
 ### Prerequisites
 - Python 3.10+
 - Windows (Optimized for DLL pre-loading and native behavior)
