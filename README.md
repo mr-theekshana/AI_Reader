@@ -24,6 +24,12 @@ AI Reader is a native Windows application designed for high-quality, natural-sou
 - Install it normally.
 - After installing finish, Click the AI Reader to run.
 
+## Details about program
+- It's natural reader is 100% off line.
+- Almost whole program is offline
+- If you use translate option, then it need connection to translate. it uses google translate
+![Reader Interface](ui/trans.png)
+
 ## For Developers
 ### Prerequisites
 - Python 3.10+
