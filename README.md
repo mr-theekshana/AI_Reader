@@ -1,6 +1,7 @@
 # AI Reader 🎧
 
 AI Reader is a native Windows application designed for high-quality, natural-sounding AI text-to-speech (TTS). It provides a seamless reading experience with a focus on ease of use and modern aesthetics.
+
 ![Reader Interface](ui/popup.png)
 
 ## Features ✨
@@ -41,7 +42,6 @@ AI Reader is a native Windows application designed for high-quality, natural-sou
 ### ℹ️ If you change any settings, they will save automatically. When you open the application later, your previous settings will be loaded by default.
 ### 📌 While running, the application uses your computer's local resources to process the text. The processing time and reading speed depend entirely on your system's performance.
 ### ⚠️ When using a terminal, please turn off this button. This ensures it will not interfere with your work; otherwise, the terminal might unexpectedly close due to the [CTRL + C] command.
-![Reader Interface](ui/trans.png)
 
 ## Details about program
 - Its natural voice reader is 100% offline.
