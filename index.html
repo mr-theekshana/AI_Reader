@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Reader — A natural‑sounding, offline text‑to‑speech reader. Paste or import text and listen with beautiful word‑by‑word highlighting." />
+  <title>AI Reader — Offline Natural Voice Reader</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ========== Header ========== -->
+    <header class="header">
+      <img src="favicon.svg" alt="AI Reader logo" class="header__icon" />
+      <h1 class="header__title">AI Reader</h1>
+      <p class="header__subtitle">Powered by Kokoro AI — a neural voice engine that sounds genuinely human. Runs 100% offline.</p>
+    </header>
+
+    <!-- ========== Text Input ========== -->
+    <section class="card" id="input-card">
+      <div class="card__header">
+        <span class="card__icon">📝</span>
+        <h2 class="card__title">Your Text</h2>
+      </div>
+
+      <div class="textarea-wrapper">
+        <div class="drop-overlay" id="drop-overlay">📄 Drop your file here</div>
+        <textarea
+          id="text-input"
+          placeholder="Paste or type the text you want to be read aloud…&#10;&#10;You can also drag & drop a .txt file here, or use the import button below."
+          spellcheck="false"
+        ></textarea>
+      </div>
+
+      <div class="textarea-actions">
+        <div class="action-buttons">
+          <label class="file-import-btn" for="file-input" id="import-btn">
+            📁 Import .txt
+          </label>
+          <button class="btn btn--secondary btn--small" id="btn-paste">📋 Paste</button>
+          <button class="btn btn--secondary btn--small" id="btn-clear">🧹 Clear</button>
+        </div>
+        <input type="file" id="file-input" accept=".txt,.text,.md" />
+        <span class="char-count" id="char-count">0 characters</span>
+      </div>
+    </section>
+
+    <!-- ========== Voice & Settings ========== -->
+    <section class="card" id="settings-card">
+      <div class="card__header">
+        <span class="card__icon">⚙️</span>
+        <h2 class="card__title">Voice & Settings</h2>
+      </div>
+
+      <div class="controls-grid">
+        <!-- Voice -->
+        <div class="control-group control-group--full">
+          <span class="control-label">Voice</span>
+          <div class="select-wrapper">
+            <select id="voice-select">
+              <option value="">Loading voices…</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Speed -->
+        <div class="control-group">
+          <div class="control-label-row">
+            <span class="control-label">Speed</span>
+            <span class="control-value" id="speed-value">1.0×</span>
+          </div>
+          <input type="range" id="speed-slider" min="0.5" max="3" step="0.1" value="1" />
+        </div>
+
+        <!-- Volume -->
+        <div class="control-group">
+          <div class="control-label-row">
+            <span class="control-label">Volume</span>
+            <span class="control-value" id="volume-value">100%</span>
+          </div>
+          <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="1" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Playback ========== -->
+    <section class="card" id="playback-card">
+      <div class="card__header">
+        <span class="card__icon">🎧</span>
+        <h2 class="card__title">Playback</h2>
+      </div>
+
+      <!-- Status -->
+      <div class="status-bar">
+        <span class="status-dot idle" id="status-dot"></span>
+        <span class="status-text" id="status-text">Ready</span>
+        <div style="flex:1"></div>
+        <div class="waveform" id="waveform">
+          <div class="waveform__bar" style="height:6px"></div>
+          <div class="waveform__bar" style="height:10px"></div>
+          <div class="waveform__bar" style="height:6px"></div>
+          <div class="waveform__bar" style="height:14px"></div>
+          <div class="waveform__bar" style="height:8px"></div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="playback-bar">
+        <button class="btn btn--primary" id="btn-play" title="Play">
+          <span id="btn-play-icon">▶</span>
+          <span id="btn-play-label">Play</span>
+        </button>
+        <button class="btn btn--secondary btn--icon" id="btn-pause" title="Pause" disabled>⏸</button>
+        <button class="btn btn--secondary btn--icon" id="btn-stop" title="Stop" disabled>⏹</button>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-section" style="margin-top: var(--space-md);">
+        <span class="time-label" id="progress-elapsed">0:00</span>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-label" id="progress-pct">0%</span>
+      </div>
+    </section>
+
+    <!-- ========== Reading Display ========== -->
+    <section class="card" id="display-card">
+      <div class="card__header">
+        <span class="card__icon">👁️</span>
+        <h2 class="card__title">Live Reading</h2>
+      </div>
+
+      <div class="reading-display" id="reading-display">
+        <div class="reading-placeholder" id="reading-placeholder">
+          <span class="reading-placeholder__icon">🔊</span>
+          <span class="reading-placeholder__text">Words will be highlighted here as they are spoken</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Keyboard Shortcuts ========== -->
+    <div class="shortcuts">
+      <div class="shortcut"><kbd>Space</kbd> Play / Pause</div>
+      <div class="shortcut"><kbd>Esc</kbd> Stop</div>
+      <div class="shortcut"><kbd>↑</kbd><kbd>↓</kbd> Speed</div>
+      <div class="shortcut"><kbd>M</kbd> Mute</div>
+    </div>
+
+    <!-- ========== Footer ========== -->
+    <footer class="footer">
+      AI Reader — 100% Offline · No data ever leaves your device
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

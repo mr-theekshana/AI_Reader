@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+venv_311/
+.env
+.venv
+env/
+ENV/
+
+# PyInstaller
+#  Usually these files are written by a python script, so they may be in the same folder as the script.
+#  If you want to include them in the repo, comment out these lines.
+build/
+dist/
+# *.spec  <-- Keep spec files for building
+
+# Models (downloaded via setup.py)
+models/
+
+# Installer outputs
+installer_output/
+
+# User settings
+settings.json
+
+# Logs
+*.log
+build_log.txt
+
+# OS
+.DS_Store
+Thumbs.db

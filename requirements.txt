@@ -1,0 +1,11 @@
+flask
+kokoro-onnx
+soundfile
+numpy
+PyQt6
+pymupdf
+pynput
+pyperclip
+pyautogui
+Pillow
+deep-translator
